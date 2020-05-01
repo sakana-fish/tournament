@@ -16,7 +16,7 @@ async def on_ready():
 
 @client.command()
 async def how(ctx2):
-  help1 = discord.Embed(title="🐟🐟🐟使い方🐟🐟🐟",color=0xe74c3c,description=".start 回戦数 全組数: 全〇組で〇回戦開始\n---start後---\n集計ツールのコピペを貼り付け→自動で組数と通過者リストを読み込んで表示(コピペ通りに張り付けられてないとメンション)。全組集計が出そろったら終了\end: 強制終了)
+  help1 = discord.Embed(title="🐟🐟🐟使い方🐟🐟🐟",color=0xe74c3c,description=".start 回戦数 全組数: 全〇組で〇回戦開始\n---start後---\n集計ツールのコピペを貼り付け→自動で組数と通過者リストを読み込んで表示(コピペ通りに張り付けられてないとメンション)。全組集計が出そろったら終了\end: 強制終了")
   await ctx2.send(embed=help1)
 
 @client.command()
