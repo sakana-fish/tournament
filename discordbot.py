@@ -79,7 +79,8 @@ async def start(ctx3,round,total):
           await now2.edit(embed=remain2)
 
     if result.content == 'end':
-      break
+      if result.author.id == ctx3.author.id:
+        break
   
   remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
   await now.edit(embed=remain)
