@@ -83,9 +83,9 @@ async def start(ctx3,round,total):
           if result.author.id == ctx3.author.id:
             break
 
-      remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
-      await now.edit(embed=remain)
-      await ctx3.send("全組集計投稿終了 {} @everyone".format(ctx3.author.mention))
+        remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
+        await now.edit(embed=remain)
+        await ctx3.send("全組集計投稿終了 {} @everyone".format(ctx3.author.mention))
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client.run(token)
