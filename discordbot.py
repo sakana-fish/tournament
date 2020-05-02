@@ -40,51 +40,52 @@ async def start(ctx3,round,total):
   
   while len(list4) != 0:
     result = await client.wait_for('message')
-    #print(result.content[0:6])
-    
-    if result.content.startswith(round):
-    #if res.startswith == name:
-      ns=result.content[1:6] 
-      num = re.sub("\\D", "", ns)
-      if int(num) in list4:
-        
-        a = result.content.find('主催コピペ用')
-        #print (a)
-        #print(len(result.content))
+    if message.guild.id == ctx3.guild.id:
         #print(result.content[0:6])
-        #print(result.content[a+len('主催コピペ用'):])
-        if a == -1:
-          await result.add_reaction('🤔')
-          await ctx3.send("主催コピペ用は正しいですか？{}".format(result.author.mention))
-        else:
-          list4.remove(int(num))
-          #print(list4)
-          await result.add_reaction('🐟')
-          remain = discord.Embed(title="{}回戦 全{}組".format(round,total),colour=0xe74c3c)
-          remain.add_field(name="結果未提出組@{}".format(len(list4)),value=list4, inline=True)
-          await now.edit(embed=remain)
 
-          if len(next)+len(result.content[a+len('主催コピペ用'):]) >= 1000:
-            remain2 = discord.Embed(title=f"{round}回戦",colour=0xe74c3c)
-            remain2.add_field(name="通過者リスト{}".format(n),value=next, inline=True)
-            await ctx3.send(embed=remain2)
-            next = '' 
-            n+=1
-          
-          next = next + result.content[a+len('主催コピペ用'):]
-          #print(len(result.content[a+len('主催コピペ用'):]))
-          #print(next)
-          remain2 = discord.Embed(title=f"{round}回戦",colour=0xe74c3c)
-          remain2.add_field(name="通過者リスト{}".format(n),value=next, inline=True)
-          await now2.edit(embed=remain2)
+        if result.content.startswith(round):
+        #if res.startswith == name:
+          ns=result.content[1:6] 
+          num = re.sub("\\D", "", ns)
+          if int(num) in list4:
 
-    if result.content == 'end':
-      if result.author.id == ctx3.author.id:
-        break
-  
-  remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
-  await now.edit(embed=remain)
-  await ctx3.send("全組集計投稿終了 {} @everyone".format(ctx3.author.mention))
-  
+            a = result.content.find('主催コピペ用')
+            #print (a)
+            #print(len(result.content))
+            #print(result.content[0:6])
+            #print(result.content[a+len('主催コピペ用'):])
+            if a == -1:
+              await result.add_reaction('🤔')
+              await ctx3.send("主催コピペ用は正しいですか？{}".format(result.author.mention))
+            else:
+              list4.remove(int(num))
+              #print(list4)
+              await result.add_reaction('🐟')
+              remain = discord.Embed(title="{}回戦 全{}組".format(round,total),colour=0xe74c3c)
+              remain.add_field(name="結果未提出組@{}".format(len(list4)),value=list4, inline=True)
+              await now.edit(embed=remain)
+
+              if len(next)+len(result.content[a+len('主催コピペ用'):]) >= 1000:
+                remain2 = discord.Embed(title=f"{round}回戦",colour=0xe74c3c)
+                remain2.add_field(name="通過者リスト{}".format(n),value=next, inline=True)
+                await ctx3.send(embed=remain2)
+                next = '' 
+                n+=1
+
+              next = next + result.content[a+len('主催コピペ用'):]
+              #print(len(result.content[a+len('主催コピペ用'):]))
+              #print(next)
+              remain2 = discord.Embed(title=f"{round}回戦",colour=0xe74c3c)
+              remain2.add_field(name="通過者リスト{}".format(n),value=next, inline=True)
+              await now2.edit(embed=remain2)
+
+        if result.content == 'end':
+          if result.author.id == ctx3.author.id:
+            break
+
+      remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
+      await now.edit(embed=remain)
+      await ctx3.send("全組集計投稿終了 {} @everyone".format(ctx3.author.mention))
+
 token = os.environ['DISCORD_BOT_TOKEN']
 client.run(token)
