@@ -56,7 +56,7 @@ async def start(ctx3,round,total):
             #print(result.content[a+len('主催コピペ用'):])
             if a == -1:
               await result.add_reaction('🤔')
-              await ctx3.send("主催コピペ用は正しいですか？{}".format(result.author.mention))
+              await result.channel.send("エラー。主催コピペ用は正しいですか？{}".format(result.author.mention))
             else:
               list4.remove(int(num))
               #print(list4)
