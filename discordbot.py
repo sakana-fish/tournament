@@ -40,7 +40,7 @@ async def start(ctx3,round,total):
   
   while len(list4) != 0:
     result = await client.wait_for('message')
-    if message.guild.id == ctx3.guild.id:
+    if result.guild.id == ctx3.guild.id:
         #print(result.content[0:6])
 
         if result.content.startswith(round):
