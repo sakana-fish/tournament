@@ -85,7 +85,8 @@ async def start(ctx3,round,total):
 
   remain = discord.Embed(title="{}回戦 全{}組 終了".format(round,total),colour=0xe74c3c)
   await now.edit(embed=remain)
-  await ctx3.send("全組集計投稿終了 {}".format(ctx3.author.mention))
+  #await ctx3.send("全組集計投稿終了 {}".format(ctx3.author.mention))
+  await ctx3.send("全組集計投稿終了 @everyone")
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client.run(token)
