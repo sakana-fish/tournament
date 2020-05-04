@@ -95,7 +95,7 @@ async def start(ctx3):
           b=0
         else:
           b=12-a%12
-        setting.add_field(name=f"{round}回戦",value=f"通過組数:{passnum1[round-1]}組 通過人数{a} 不足@{b}", inline=False)
+        setting.add_field(name=f"{round}回戦",value=f"通過組数:{passnum1[round-1]}組 通過人数{a} 不足@{int(b/int(keishiki))}組", inline=False)
         await set.edit(embed=setting)
 
         #await ctx3.send("{}回戦の得点上位人数を入力してください。".format(round))
