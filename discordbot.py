@@ -374,10 +374,22 @@ async def start(ctx3):
       ramhost = random.choice(host)
       host.remove(ramhost)
       devide.append(ramhost)
-      ramplayer = random.sample(alive2,11)
+      
+      if keishiki == 1:
+        a=11
+      if keishiki == 2:
+        a=5
+      if keishiki == 3:
+        a=3
+      if keishiki == 4:
+        a=2
+      if keishiki == 6:
+        a=1
+       
+      ramplayer = random.sample(alive2,a)
       #print("ramplayer")
       #print(ramplayer)
-      for j in range(11):
+      for j in range(a):
         alive2.remove(ramplayer[j])
         devide.append(ramplayer[j])
       devidelist ='\n'.join(devide) 
