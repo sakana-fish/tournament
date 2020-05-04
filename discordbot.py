@@ -68,7 +68,7 @@ async def start(ctx3):
         setting = discord.Embed(title=f"{round}回戦の通過組数(個人の場合人数)を入力してください。",colour=0xe74c3c,description="大会名:{} 形式:{} 参加者数:{}名".format(tournamentname,keishiki,player))
         for i in range(round-1):
          # print("hello")
-          a = (int(passnum1[i])*int(total1[i])+int(passplus[i]))*keishiki
+          a = (int(passnum1[i])*int(total1[i])+int(passplus1[i]))*keishiki
           setting.add_field(name=f"{i+1}回戦",value=f"通過組数:{passnum1[i]}組 得点上位:{passplus1[i]}組 レース数:{race1[i]}レース 通過人数:{a}", inline=False)
         await set.edit(embed=setting)
     
