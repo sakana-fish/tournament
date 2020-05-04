@@ -88,7 +88,7 @@ async def start(ctx3):
         for i in range(round-1):
           print("hello")
           #setting.add_field(name=f"{i+1}回戦",value=f"通過組数:{passnum1[i]}組 得点上位:{passplus1[i]}組 レース数:{race1[i]}レース 通過人数{passnum1[i]*keishiki+passplus1[i]}", inline=False)
-          a = (int(passnum1[i])+int(passplus[i]))*keishiki*int(total1[i+1])
+          a = (int(passnum1[i])+int(passplus1[i]))*keishiki*int(total1[i+1])
           setting.add_field(name=f"{i+1}回戦",value=f"通過組数:{passnum1[i]}組 得点上位:{passplus1[i]}組 レース数:{race1[i]}レース 通過人数:{a}", inline=False)
         a = int(passnum1[round-1])*keishiki*int(total)
         if a%12 == 0:
