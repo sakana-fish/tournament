@@ -40,12 +40,17 @@ async def start(ctx3):
   tournamentname = await client.wait_for('message',check=check)
   tournamentname = tournamentname.content
   #await client.messsage.delete(tournamentname)
+  await ctx3.channel.purge(limit=1)
+
 
   setting = discord.Embed(title="大会概要\n",colour=0xe74c3c,description="大会の形式を入力してください。\n1:個人 2:タッグ 3:プルス 4:フォーマン 6:6v6")
   setting.add_field(name="大会名",value=tournamentname, inline=False)
   await set.edit(embed=setting)
   keishiki = await client.wait_for('message',check=check)
   keishiki = int(keishiki.content)
+  await ctx3.channel.purge(limit=1)
+
+
 
   setting = discord.Embed(title="大会概要\n",colour=0xe74c3c,description="大会参加者の人数を入力してください。")
   setting.add_field(name="大会名",value=tournamentname, inline=False)
@@ -61,6 +66,9 @@ async def start(ctx3):
   race1=[]
   total1 = [total]
   ok3 = 1
+  await ctx3.channel.purge(limit=1)
+ 
+   
   while ok3 == 1:
     ok = 1
     ok2 = 1
@@ -71,6 +79,7 @@ async def start(ctx3):
           a = (int(passnum1[i])*int(total1[i])+int(passplus1[i]))*keishiki
           setting.add_field(name=f"{i+1}回戦",value=f"通過組数:{passnum1[i]}組 得点上位:{passplus1[i]}組 レース数:{race1[i]}レース 通過人数:{a}", inline=False)
         await set.edit(embed=setting)
+
     
         #await ctx3.send("{}回戦の通過組数(個人の場合人数)を入力してください。".format(round))        
         while ok == 1:
@@ -81,6 +90,7 @@ async def start(ctx3):
               #if isinstance(passnum, int) == "True" and isinstance(survive, int) == "True":
           ok = 0
           #else await ctx3.send("try again")
+          await ctx3.channel.purge(limit=1)
 
         ok = 1
 
@@ -97,6 +107,7 @@ async def start(ctx3):
           b=12-a%12
         setting.add_field(name=f"{round}回戦",value=f"通過組数:{passnum1[round-1]}組 通過人数{a} 不足@{int(b/int(keishiki))}組", inline=False)
         await set.edit(embed=setting)
+        
 
         #await ctx3.send("{}回戦の得点上位人数を入力してください。".format(round))
         while ok == 1:
@@ -107,6 +118,8 @@ async def start(ctx3):
               #passplus = int(passplus)
               #if isinstance(passnum, int) == "True" and isinstance(survive, int) == "True":
           ok = 0
+          await ctx3.channel.purge(limit=1)
+
           #else await ctx3.send("try again")
         if (int(total)*int(passnum)+int(passplus))*keishiki%12 == 0:
           ok2 = 0         
@@ -124,6 +137,8 @@ async def start(ctx3):
           tests = await client.wait_for('message',check=check)        
           race1.append(tests.content)
           round += 1
+          await ctx3.channel.purge(limit=1)
+
           if (int(total)*int(passnum)+int(passplus))*keishiki/12 == 1:
             ok3 = 0
 
@@ -143,6 +158,8 @@ async def start(ctx3):
               setting.add_field(name=f"{i+1}回戦",value=f"通過組数:{passnum1[i]}組 得点上位:{passplus1[i]}組 レース数:{race1[i]}レース 通過人数:{(int(passnum1[i])*keishiki+int(passplus1[i]))*int(total)}", inline=False)
             setting.add_field(name=f"決勝戦",value=f"レース数:{race1[i+1]}レース", inline=False)     
             await set.edit(embed=setting)
+            await ctx3.channel.purge(limit=1)
+
           total=(int(total)*int(passnum)+int(passplus))*keishiki/12
           total=int(total)
           total1.append(total)
