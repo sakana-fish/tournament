@@ -47,9 +47,8 @@ async def start(ctx3):
   setting.add_field(name="大会名",value=tournamentname, inline=False)
   await set.edit(embed=setting)
   keishiki = await client.wait_for('message',check=check)
-  keishiki = int(keishiki.content)
   await ctx3.channel.purge(limit=1)
-
+  keishiki = int(keishiki.content)
 
 
   setting = discord.Embed(title="大会概要\n",colour=0xe74c3c,description="大会参加者の人数を入力してください。")
