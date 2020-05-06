@@ -394,11 +394,12 @@ async def start(ctx3):
         devide.append(ramplayer[j])
       devidelist ='\n'.join(devide) 
       print(devidelist)
-      negroup = discord.Embed(title="{}回戦{}組".format(round,i), colour=0xe74c3c)
-      negroup.add_field(name="リスト",value=devidelist,inline=True)
+      #negroup = discord.Embed(title="{}回戦{}組".format(round,i), colour=0xe74c3c)
+      #negroup.add_field(name="リスト",value=devidelist,inline=True)
+      await ctx3.send("{}回戦{}組\n{}".format(round,i,devidelist))
       #nehost.add_field(''.join(host))
       #print(negroup)
-      await ctx3.send(embed=negroup)
+      #await ctx3.send(embed=negroup)
 
     round=int(round)
     #round += 1
